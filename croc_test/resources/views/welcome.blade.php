@@ -8,14 +8,14 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,400i,700" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Alegreya Sans', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -43,6 +43,8 @@
 
             .content {
                 text-align: center;
+                width: 960px;
+                margin: 0 auto;
             }
 
             .title {
@@ -62,6 +64,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .task-description p{
+                margin: 5px auto;
+            }
         </style>
     </head>
     <body>
@@ -78,17 +83,26 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title m-b-sm">
+                    Croc test App
+                </div>
+                <div class="task-description m-t-sm m-b-md">
+                    <p>
+                        Заказчику требуется сервис для определения профессии или социальной группы пользователей.
+                    </p>
+                    <p>
+                        Для выполнения этой задачи пользователю должна быть предоставлена возможность пройти опрос с заранее составленными ответами. В каждом из вопросов можно выбрать только один ответ.
+                    </p>
+                    <p>
+                        Результат прохождения опроса — вероятность (в процентах), с которой пользователя можно отнести к профессии или к социальной группе. Процент должен вычисляться с использованием алгоритма, который неким образом должен оценивать выбранные ответы.
+                    </p>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="#">Конструктор опроса</a>
+                    <a href="#">Опросы</a>
+                    <a href="#">Описание логики</a>
+                    <a href="https://github.com/Maximbl4m/test_tasks" target="_blank">GitHub</a>
                 </div>
             </div>
         </div>
