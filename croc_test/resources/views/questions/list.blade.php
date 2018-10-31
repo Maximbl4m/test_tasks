@@ -16,32 +16,30 @@
     </div>
     <div class="row">
         <div class="col">
-            @if (count($polls) == 0)
-                <div class="alert alert-danger">Не найдены опросы. Вы можете <a href="{{ route('pollCreate') }}">создать</a> новый опрос и вернуться сюда.</div>
+            @if (count($questions) == 0)
+                <div class="alert alert-danger">У данного опроса нет вариантов ответов. Вы можете <a href="/poll/{{ $poll->id }}/questions/create">добавить</a> вопросы.</div>
             @else
-                <h1 class="heading-title">Список всех опросов</h1>
-                <a href="{{ route('pollCreate') }}" class="btn btn-primary mb-3">Новый опрос</a>
+                <h1 class="heading-title">Список всех вопросов к опросу <q>{{ $poll->title }}</q></h1>
+                <a href="/poll/{{ $poll->id }}/questions/create" class="btn btn-primary mb-3">Добавить вопрос</a>
                 <div class="table-responsive">
                     <table class="table table-dark">
                         <thead>
                         <tr>
-                            <th style="width: 250px;">Название</th>
-                            <th>Описание</th>
-                            <th style="width: 200px">Вопросы</th>
+                            <th>Текст вопроса</th>
+                            <th style="width: 150px">Кол-во ответов</th>
                             <th style="width: 300px">Действия</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($polls as $poll)
+                        @foreach ($questions as $question)
                             <tr>
-                                <td>{{ $poll->title }}</td>
-                                <td>{!! StringHelper::truncate($poll->description, 400) !!}</td>
+                                <td>{!! StringHelper::truncate($question->text, 400) !!}</td>
                                 <td>
-                                    <a href="/poll/{{ $poll->id }}/questions" class="btn btn-primary">Список вопросов</a>
+                                    {{ count($question->answers) }}
                                 </td>
                                 <td>
-                                    <a href="/poll/edit/{{ $poll->id }}" class="btn btn-warning">Редактировать</a>
-                                    <a href="/poll/delete/{{ $poll->id }}" class="btn btn-danger">Удалить</a>
+                                    <a href="/poll/{{ $poll->id }}/questions/edit/{{ $question->id }}" class="btn btn-warning">Редактировать</a>
+                                    <a href="/poll/{{ $poll->id }}questions/remove/{{ $question->id }}" class="btn btn-danger">Удалить</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -1,0 +1,14 @@
+.highlight {
+    padding: 15px;
+    background-color: #e6e6e6;
+    margin-bottom: 30px;
+}
+.answerItem .form-control {
+    min-width: 50%;
+}
+.answerItem .answer-weight {
+    max-width: 5%;
+}
+#addAnswer {
+    margin-top: 30px;
+}

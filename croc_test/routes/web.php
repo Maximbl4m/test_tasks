@@ -22,7 +22,8 @@ Route::get('/poll/edit/{poll}', 'PollController@Form')->name('pollEdit');
 Route::post('/poll/edit/{poll}', 'PollController@Save');
 Route::get('/poll/delete/{poll}', 'PollController@Remove');
 
-Route::get('/poll/{poll}/questions', 'QuestionsController@Index');
+Route::get('/poll/{poll}/questions', 'QuestionsController@Index')->name('questionsList');
+Route::get('/poll/{poll}/questions/create', 'QuestionsController@Form');
 
 
 Route::get('/group', 'GroupController@Index')->name('groupsList');

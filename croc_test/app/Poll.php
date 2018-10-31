@@ -12,4 +12,8 @@ class Poll extends Model
     public function groups() {
         return $this->belongsToMany('App\Group');
     }
+
+    public function questions() {
+        return $this->hasMany('App\Question');
+    }
 }

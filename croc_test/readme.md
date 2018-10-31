@@ -1,65 +1,53 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="center">Проект на PHP фреймворке Laravel</p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+Ссылка на задачу: https://hackmd.io/s/rkkQHohz7
 </p>
 
-## About Laravel
+### Описание задачи
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+<p>Заказчику требуется сервис для определения профессии или социальной группы пользователей.</p>
+<p>Для выполнения этой задачи пользователю должна быть предоставлена возможность пройти опрос с заранее составленными ответами. В каждом из вопросов можно выбрать только один ответ.</p>
+<p>Результат прохождения опроса — вероятность (в процентах), с которой пользователя можно отнести к профессии или к социальной группе. Процент должен вычисляться с использованием алгоритма, который неким образом должен оценивать выбранные ответы.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Пример теста:
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+#### Вопрос №1: “Любите ли вы выпекать пироги?”
+<p>Ответ №1: Люблю.</p>
+<p>Ответ №2: Думаю только об этом, не могу спать.</p>
+<p>Ответ №3: Нет.</p>
 
-## Learning Laravel
+#### Вопрос №2: “Как вы относитесь к еде ?”
+<p>Ответ №1: Очень люблю вкусно поесть.</p>
+<p>Ответ №2: Отношусь спокойно.</p>
+<p>Ответ №3: Я — дизайнер блюд в ресторане.</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+#### Вопрос №3: “Умеете ли вы варить суп?”
+<p>Ответ №1: Нет</p>
+<p>Ответ №2: Да</p>
+<p>Ответ №3: Наверное</p>
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-## Laravel Sponsors
+### Алгоритмы расчета
+<p>Алгоритм расчета для профессии “Повар”, используя эти вопросы, позволяет определить, насколько пользователю подходит профессия повара.</p>
+<p>Алгоритм расчета для социальной группы “Гурман”, используя эти вопросы, позволяет определить, насколько респондент соответствует этой социальной группе.</p>
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+## Задача
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
+<ol>
+    <li>
+        Спроектировать архитектуру приложения для подготовки и проведения тестирования.
+    </li>
+    <li>
+        Описать логику взаимодействия классов в файле example.php, где будет использовано ваше решение.
+    </li>
+    <li>
+        Опционально. Добавьте тест и алгоритм, который сможет определить, насколько правдиво человек отвечает на вопросы.
+    </li>
+</ol>
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+##Уточнения
+<ol>
+<li>Реализация должна позволять добавлять новые алгоритмы без изменения классов-сущностей</li>
+<li>Тест дан для примера, т.е. реализация не должна зависеть от конкретных вопросов/ответов.</li>
+</ol>
