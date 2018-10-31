@@ -13,9 +13,13 @@ class GroupController extends Controller
         return view('group.form', ['group' => $group]);
     }
 
-    public function save(GroupSaveRequest $request)
+    public function save(GroupSaveRequest $request, Group $group = null)
     {
-        $group = new Group($request->all());
+        if (!$group) {
+            $group = new Group($request->all());
+        } else {
+            $group->fill($request->all());
+        }
         $group->save();
         return redirect()->route('groupsList');
     }
@@ -24,5 +28,11 @@ class GroupController extends Controller
     {
         $groups = Group::all();
         return view('group.list', ['groups' => $groups]);
+    }
+
+    public function remove(Group $group)
+    {
+        $group->delete();
+        return redirect()->route('groupsList');
     }
 }

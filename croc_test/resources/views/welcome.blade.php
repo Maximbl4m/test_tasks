@@ -71,17 +71,6 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-sm">
                     Croc test App
@@ -99,8 +88,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">Конструктор опроса</a>
-                    <a href="#">Опросы</a>
+                    <a href="{{ Route('groupsList') }}">Список групп</a>
+                    <a href="{{ Route('pollsList') }}">Список опросов</a>
                     <a href="#">Описание логики</a>
                     <a href="https://github.com/Maximbl4m/test_tasks" target="_blank">GitHub</a>
                 </div>

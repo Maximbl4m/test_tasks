@@ -24,7 +24,7 @@ class SavePollRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts|max:255'
+//
         ];
     }
 }
