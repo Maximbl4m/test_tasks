@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\Http\Requests\PollResultsRequest;
 use App\Http\Requests\SavePollRequest;
 use App\Poll;
 use Illuminate\Http\Request;
@@ -13,6 +14,53 @@ class PollController extends Controller
     {
         $polls = Poll::all();
         return view('poll.list', ['polls' => $polls]);
+    }
+
+    public function availablePolls()
+    {
+        $polls = Poll::with('questions')->has('questions')->get();
+        return view('poll.available', ['polls' => $polls]);
+    }
+
+    public function proceed(Poll $poll)
+    {
+        return view('poll.proceed', ['poll' => $poll]);
+    }
+
+    public function results(PollResultsRequest $request, Poll $poll)
+    {
+        $pollAnswers = $request->get('answer');
+        $results = [];
+        foreach ($poll->groups as $group) {
+            $results[$group->id] = 0;
+        }
+        foreach ($pollAnswers as $questionId => $answerId) {
+            foreach ($poll->questions as $question) {
+                if ($question->id == $questionId) {
+                    foreach ($question->answer as $answer) {
+                        if ($answer->id == $answerId) {
+                            foreach ($answer->answerScores as $answerScore) {
+                                $results[$answerScore->group_id] += $answerScore->score;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pollSum = array_sum($results);
+        $sortedGroups = array_keys($results);
+        $userGroupId = end($sortedGroups);
+        $resultScore = $results[$userGroupId];
+        $percentage = intval(round(($resultScore / $pollSum) * 100));
+        $groupInfo = '';
+        foreach ($poll->groups as $group) {
+            if ($group->id == $userGroupId) {
+                $groupInfo = $group;
+                break;
+            }
+        }
+
+        return view('poll.results', ['groupInfo' => $groupInfo, 'percentage' => $percentage]);
     }
 
     /**

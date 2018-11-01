@@ -85,12 +85,17 @@
                     <p>
                         Результат прохождения опроса — вероятность (в процентах), с которой пользователя можно отнести к профессии или к социальной группе. Процент должен вычисляться с использованием алгоритма, который неким образом должен оценивать выбранные ответы.
                     </p>
+                    @if ($hasValidPoll)
+                        <div class="links" style="text-align: center;">
+                            <a href="{{ Route('availablePolls') }}" class="btn btn-primary">Список доступных опросов</a>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="links">
                     <a href="{{ Route('groupsList') }}">Список групп</a>
                     <a href="{{ Route('pollsList') }}">Список опросов</a>
-                    <a href="#">Описание логики</a>
+                    <a href="{{ Route('logicInfo') }}">Описание логики</a>
                     <a href="https://github.com/Maximbl4m/test_tasks" target="_blank">GitHub</a>
                 </div>
             </div>

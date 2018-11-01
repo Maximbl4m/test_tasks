@@ -12,3 +12,14 @@
 #addAnswer {
     margin-top: 30px;
 }
+.heading-title{
+    font-size: 24px;
+    color: #1e7e34;
+}
+.question-title {
+    font-size: 16px;
+    color: #1d2124;
+}
+.question-answers {
+    font-size: 14px;
+}

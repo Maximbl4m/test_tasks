@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@Index')->name('home');
+Route::get('/logic', 'HomeController@logicInfo')->name('logicInfo');
 
 Route::get('/poll', 'PollController@Index')->name('pollsList');
+Route::get('/poll/available', 'PollController@availablePolls')->name('availablePolls');
+Route::get('/poll/go/{poll}', 'PollController@proceed');
+Route::post('/poll/go/{poll}', 'PollController@results');
 Route::get('/poll/create', 'PollController@Form')->name('pollCreate');
 Route::post('/poll/create', 'PollController@Save')->name('pollSave');
 Route::get('/poll/edit/{poll}', 'PollController@Form')->name('pollEdit');
