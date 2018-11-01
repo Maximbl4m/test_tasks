@@ -23,7 +23,11 @@ Route::post('/poll/edit/{poll}', 'PollController@Save');
 Route::get('/poll/delete/{poll}', 'PollController@Remove');
 
 Route::get('/poll/{poll}/questions', 'QuestionsController@Index')->name('questionsList');
-Route::get('/poll/{poll}/questions/create', 'QuestionsController@Form');
+Route::get('/poll/{poll}/questions/create', 'QuestionsController@Form')->name('questionCreate');
+Route::get('/poll/{poll}/questions/edit/{question}', 'QuestionsController@Form')->name('questionEdit');
+Route::post('/poll/{poll}/questions/edit/{question}', 'QuestionsController@Save')->name('questionEdit');
+Route::post('/poll/{poll}/questions/create', 'QuestionsController@Save');
+Route::get('/poll/{poll}/questions/remove/{question}', 'QuestionsController@Remove');
 
 
 Route::get('/group', 'GroupController@Index')->name('groupsList');

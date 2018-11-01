@@ -8,9 +8,15 @@ class Answer extends Model
 {
 
     protected $table = 'answer';
+    protected $fillable = ['text'];
 
-    public function questions()
+    public function question()
     {
-        return $this->hasMany('App\Question');
+        return $this->hasOne('App\Question');
+    }
+
+    public function answerScores()
+    {
+        return $this->hasMany('App\AnswerScore');
     }
 }

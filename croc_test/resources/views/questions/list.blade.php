@@ -7,8 +7,11 @@
                     <li class="breadcrumb-item">
                         <a href="/">Главная</a>
                     </li>
+                    <li class="breadcrumb-item">
+                        <a href="{{ Route('pollsList') }}">Список опросов</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        Список опросов
+                        Вопросы для опроса
                     </li>
                 </ol>
             </nav>
@@ -35,11 +38,11 @@
                             <tr>
                                 <td>{!! StringHelper::truncate($question->text, 400) !!}</td>
                                 <td>
-                                    {{ count($question->answers) }}
+                                   {{ count($question->answer) }}
                                 </td>
                                 <td>
                                     <a href="/poll/{{ $poll->id }}/questions/edit/{{ $question->id }}" class="btn btn-warning">Редактировать</a>
-                                    <a href="/poll/{{ $poll->id }}questions/remove/{{ $question->id }}" class="btn btn-danger">Удалить</a>
+                                    <a href="/poll/{{ $poll->id }}/questions/remove/{{ $question->id }}" class="btn btn-danger">Удалить</a>
                                 </td>
                             </tr>
                         @endforeach

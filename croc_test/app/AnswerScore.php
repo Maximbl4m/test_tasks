@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AnswerScore extends Model
 {
     protected $table = 'answer_score';
+    protected $fillable = ['group_id', 'score'];
 
     public function answer()
     {
