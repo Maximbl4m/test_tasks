@@ -48,6 +48,7 @@ class PollController extends Controller
             }
         }
         $pollSum = array_sum($results);
+        asort($results);
         $sortedGroups = array_keys($results);
         $userGroupId = end($sortedGroups);
         $resultScore = $results[$userGroupId];
